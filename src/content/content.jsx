@@ -2,22 +2,19 @@ import { useState } from "react";
 
 const Content = () => {
 
-    const [name, setName] = useState('mario');
-    let [age, setAge] = useState(20);
-
-    const callMessage = () =>{
-        console.log('avee chakraborty!');
-    }
-
-    const handleClick = () =>{
-        setName('avee');
-        setAge(27);
-    };
+    const [blogs, setBlogs] = useState([
+        {id:1, name:'avee chakraborty',content: 'uheiuhfifhiu ihfiu rhfihefiuhriu'},
+        {id:2, name:'biplob chakraborty',content: 'uheiuhfifhiu ihfiu rhfihefiuhriu'},
+        {id:3, name:'prasanta chakraborty',content: 'uheiuhfifhiu ihfiu rhfihefiuhriu'}])
 
     return(
         <div className="content">
-            <h3>{ name } is {age} years old!</h3>
-            <button onClick={handleClick}>Click Me</button>
+            {blogs.map((blog) => (
+                <div className="blog-preview" key={blog.id}>
+                    <h2>{ blog.name }</h2>
+                    <p>{ blog.content }</p>
+                </div>
+            ))}
         </div>
     )
 }
